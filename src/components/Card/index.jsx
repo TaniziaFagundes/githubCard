@@ -5,6 +5,7 @@ const Card = ({ itemList }) => {
       <div className="card_description">
         <h4>{itemList.name}</h4>
         <p>{itemList.owner.login}</p>
+        <p>{itemList.description}</p>
       </div>
     </div>
   );
