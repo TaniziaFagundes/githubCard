@@ -1,22 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
+  const [input, setInput] = useState("");
+  const [resultList, setResultList] = useState([]);
+
+  useEffect(() => {
+    fetch(" https://api.github.com/repos/")
+      .then((response) => response.json())
+      .then((response) => setResultList([...resultList, response]));
+  }, [input]);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {resultList.map((item) => console.log("list - " + item.name))}
       </header>
     </div>
   );
