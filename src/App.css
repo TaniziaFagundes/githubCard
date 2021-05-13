@@ -1,4 +1,27 @@
-.App {
+input,
+button {
+  padding: 20px;
+  border-style: none;
+  outline-color: aliceblue;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+input {
+  padding: 20px 70px;
+  margin: 10px;
+  border: 3px solid rgb(40, 40, 143);
+}
+
+button {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: rgba(40, 40, 143, 0.911);
+  outline-style: none;
+}
+
+BU .App {
   text-align: center;
 }
 
@@ -14,7 +37,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #252424;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -26,6 +26,7 @@ function App() {
               setInput(e.target.value);
               e.preventDefault();
             }}
+            placeholder="ex: nameUser/nameRepository"
           ></input>
           {console.log(input)}
           <button type="submit" onClick={() => setBusca({ busca: !busca })}>
