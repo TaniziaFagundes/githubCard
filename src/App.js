@@ -14,7 +14,7 @@ function App() {
     fetch("https://api.github.com/repos/" + input)
       .then((response) => response.json())
       .then((response) => setResultList([...resultList, response]))
-      .catch((err) =>
+      .catch(() =>
         displayAlert ? (
           <Alert
             title={"Repositorio inserido não foi encontrado"}
@@ -31,6 +31,22 @@ function App() {
       .then((response) => response.json())
       .then((response) =>
         setreposLanguage([...reposLanguage, Object.keys(response)])
+      );
+  };
+
+  const UserRepositorys = (input) => {
+    fetch("https://api.github.com/users/" + input + "/repos")
+      .then((response) => response.json())
+      .then((response) => setResultList([...resultList, response]))
+      .catch(() =>
+        displayAlert ? (
+          <Alert
+            title={"Repositorio inserido não foi encontrado"}
+            setDisplayAlert={setDisplayAlert}
+          ></Alert>
+        ) : (
+          ""
+        )
       );
   };
 
