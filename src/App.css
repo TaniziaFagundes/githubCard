@@ -1,6 +1,6 @@
 input,
 button {
-  padding: 20px;
+  padding: 10px;
   border-style: none;
   outline-color: aliceblue;
   border-radius: 5px;
@@ -8,9 +8,9 @@ button {
 }
 
 input {
-  padding: 20px 70px;
+  padding: 10px 60px;
   margin: 10px;
-  border: 3px solid rgb(40, 40, 143);
+  border: 2px solid rgb(40, 40, 143);
 }
 
 button {
@@ -19,6 +19,75 @@ button {
   font-size: 20px;
   background-color: rgba(40, 40, 143, 0.911);
   outline-style: none;
+}
+
+.container_busca {
+  margin-top: 30px;
+}
+
+.container_card {
+  margin: 20px;
+}
+
+.container_card .card {
+  border: 2px solid rgba(50, 80, 161, 0.705);
+  border-radius: 15px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.card_img {
+  width: 110px;
+  height: 110px;
+  border-radius: 100%;
+  margin: 10px;
+}
+
+.card_description {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  line-height: 2px;
+}
+
+.card .button_link {
+  width: 80px;
+  text-decoration: none;
+  background-color: rgba(42, 172, 42, 0.767);
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  text-align: center;
+}
+
+.container_alert {
+  position: absolute;
+  align-items: center;
+  text-align: center;
+  margin-top: 40%;
+}
+
+.alert {
+  padding: 20px;
+  background-color: white;
+  color: rgb(17, 16, 16);
+  border-radius: 5px;
+  border: 1px solid blue;
+  box-shadow: 3px 3px blue;
+}
+
+.alert button {
+  padding: 10px 20px;
+}
+
+.alert button:hover {
+  background-color: rgba(29, 124, 29, 0.712);
+  width: 80px;
 }
 
 BU .App {
@@ -37,12 +106,11 @@ BU .App {
 }
 
 .App-header {
-  background-color: #252424;
+  background-color: #1b1a1a;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }

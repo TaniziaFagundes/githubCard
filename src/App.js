@@ -1,20 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import Card from "./components/Card/";
+import Alert from "./components/Alert/";
 
 function App() {
   const [input, setInput] = useState("");
   const [resultList, setResultList] = useState([]);
-  const [busca, setBusca] = useState(false);
+  const [displayAlert, setDisplayAlert] = useState(false);
 
-  useEffect(() => {
+  const apiResult = (input) => {
     fetch("https://api.github.com/repos/" + input)
       .then((response) => response.json())
       .then((response) => setResultList([...resultList, response]))
-      .catch((err) => {
-        <alert>Não encontrado</alert>;
-      });
-  }, [input, busca]);
+      .catch((err) =>
+        displayAlert ? (
+          <Alert
+            title={"Repositorio inserido não foi encontrado"}
+            setDisplayAlert={setDisplayAlert}
+          ></Alert>
+        ) : (
+          ""
+        )
+      );
+  };
 
   return (
     <div className="App">
@@ -24,19 +32,35 @@ function App() {
             value={input.value}
             onChange={(e) => {
               setInput(e.target.value);
+              console.log(e.target.value);
               e.preventDefault();
             }}
             placeholder="ex: nameUser/nameRepository"
           ></input>
-          {console.log(input)}
-          <button type="submit" onClick={() => setBusca({ busca: !busca })}>
+
+          <button
+            type="submit"
+            onClick={() => {
+              input === "" ? setDisplayAlert(true) : apiResult(input);
+            }}
+          >
             Buscar
           </button>
         </div>
         <div className="container_card">
-          {input !== ""
-            ? resultList.map((item) => <Card itemList={item}></Card>)
-            : ""}
+          {resultList.map((item) => (
+            <Card itemList={item}></Card>
+          ))}
+        </div>
+        <div className="container_alert">
+          {displayAlert ? (
+            <Alert
+              title={"Insira valor de Busca"}
+              setDisplayAlert={setDisplayAlert}
+            ></Alert>
+          ) : (
+            ""
+          )}
         </div>
       </header>
     </div>
