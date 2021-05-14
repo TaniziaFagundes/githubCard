@@ -1,4 +1,5 @@
-const Card = ({ itemList }) => {
+import Language from "../Languag/";
+const Card = ({ itemList, reposLanguage }) => {
   return (
     <div className="card" key={itemList.id}>
       <img
@@ -10,8 +11,10 @@ const Card = ({ itemList }) => {
         <h4>
           {itemList.name} forks:{itemList.forks}
         </h4>
+
         <p>{itemList.owner.login}</p>
         <p>{itemList.description}</p>
+        <Language reposLanguage={reposLanguage}></Language>
         <a className="button_link" target="_blank" href={itemList.html_url}>
           Acessar
         </a>

@@ -7,6 +7,7 @@ import Alert from "./components/Alert/";
 function App() {
   const [input, setInput] = useState("");
   const [resultList, setResultList] = useState([]);
+  const [reposLanguage, setreposLanguage] = useState([]);
   const [displayAlert, setDisplayAlert] = useState(false);
 
   const apiResult = (input) => {
@@ -22,6 +23,14 @@ function App() {
         ) : (
           ""
         )
+      );
+  };
+
+  const RespLanguage = (input) => {
+    fetch("https://api.github.com/repos/" + input + "/languages")
+      .then((response) => response.json())
+      .then((response) =>
+        setreposLanguage([...reposLanguage, Object.keys(response)])
       );
   };
 
@@ -44,6 +53,7 @@ function App() {
             type="submit"
             onClick={() => {
               input === "" ? setDisplayAlert(true) : apiResult(input);
+              RespLanguage(input);
             }}
           >
             Buscar
@@ -51,7 +61,7 @@ function App() {
         </div>
         <div className="container_card">
           {resultList.map((item) => (
-            <Card itemList={item}></Card>
+            <Card itemList={item} reposLanguage={reposLanguage}></Card>
           ))}
         </div>
         <div className="container_alert">

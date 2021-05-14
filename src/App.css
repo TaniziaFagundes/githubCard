@@ -94,6 +94,16 @@ button {
   background-color: rgba(29, 124, 29, 0.712);
   width: 80px;
 }
+.card_language {
+  display: flex;
+  background-color: rgb(192, 140, 44);
+  padding: 5px;
+}
+
+.item_language {
+  margin: 6px;
+  margin-left: 5px;
+}
 
 BU .App {
   text-align: center;
