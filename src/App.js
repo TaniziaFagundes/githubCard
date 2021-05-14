@@ -1,4 +1,5 @@
 import { useState } from "react";
+import github from "./github.svg";
 import "./App.css";
 import Card from "./components/Card/";
 import Alert from "./components/Alert/";
@@ -27,6 +28,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <img className="github" src={github}></img>
         <div className="container_busca">
           <input
             value={input.value}

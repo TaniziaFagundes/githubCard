@@ -7,7 +7,9 @@ const Card = ({ itemList }) => {
         alt="avatar"
       ></img>
       <div className="card_description">
-        <h4>{itemList.name}</h4>
+        <h4>
+          {itemList.name} forks:{itemList.forks}
+        </h4>
         <p>{itemList.owner.login}</p>
         <p>{itemList.description}</p>
         <a className="button_link" target="_blank" href={itemList.html_url}>

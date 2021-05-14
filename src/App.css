@@ -46,6 +46,11 @@ button {
   margin: 10px;
 }
 
+.github {
+  width: 70px;
+  margin-top: 30px;
+}
+
 .card_description {
   margin-left: 10px;
   display: flex;
